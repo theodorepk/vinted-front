@@ -1,3 +1,5 @@
+import { BrowserRouter as Link } from "react-router-dom";
+
 const Home = ({ data }) => {
   data.offers.map((element) => {
     if (element.owner) {
@@ -14,7 +16,7 @@ const Home = ({ data }) => {
       <div className="homeOffers">
         {data.offers.map((element, index) => {
           return (
-            <div className="product" key={index}>
+            <Link className="product" key={index} to="/offer/123">
               <span>{element.product_name}</span>
               {/* some offers don't have owner */}
               {element.owner && (
@@ -32,7 +34,7 @@ const Home = ({ data }) => {
                   alt="produit vendu"
                 />
               }
-            </div>
+            </Link>
           );
         })}
       </div>
