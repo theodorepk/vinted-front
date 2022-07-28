@@ -47,3 +47,39 @@ header {
   width: 40px;
   border-radius: 50px;
 }
+
+/* ------ OFFER ---------- */
+.offer {
+  display: flex;
+}
+
+.offerInfo {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  background-color: lightgray;
+}
+
+.technicalInfoProduct {
+  border-bottom: 1px grey solid;
+  margin-bottom: 40px;
+}
+
+.productPrice {
+  margin: 10px;
+  font-size: 40px;
+}
+
+.productDetail {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* li {
+  display: flex;
+  justify-content: space-between;
+} */
+
+h2 {
+  margin-bottom: 10px;
+}
