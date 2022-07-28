@@ -1,4 +1,4 @@
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home = ({ data }) => {
   data.offers.map((element) => {
@@ -10,13 +10,15 @@ const Home = ({ data }) => {
   });
   // console.log(data.offers);
 
+  const id = 1234;
+
   return (
     <div>
       <div className="hero"></div>
       <div className="homeOffers">
         {data.offers.map((element, index) => {
           return (
-            <Link className="product" key={index} to="/offer/123">
+            <Link className="product" key={index} to={`/offer/${id}`}>
               <span>{element.product_name}</span>
               {/* some offers don't have owner */}
               {element.owner && (

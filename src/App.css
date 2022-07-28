@@ -32,6 +32,8 @@ header {
   margin: 20px;
   background-color: lightcoral;
   width: 195px;
+  text-decoration: none;
+  color: black;
 }
 
 .product img {
