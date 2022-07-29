@@ -1,9 +1,9 @@
 const Header = () => {
   return (
     <header>
-      <div>vinted </div>
+      <div className="logo">vinted </div>
       <div className="searchBar">
-        <div>loupe</div>
+        <div>🔍</div>
         <span>rechercher des articles</span>
       </div>
       <div className="buttons">

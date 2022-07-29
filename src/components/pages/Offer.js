@@ -8,6 +8,7 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // const { id } = useParams();
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -29,7 +30,7 @@ const Offer = () => {
     <span>En cours de chargement</span>
   ) : (
     <div className="offer">
-      <img src={offerData.product_image.secure_url} alt="" />
+      <img src={offerData.product_image.secure_url} alt="produit vendu" />
       <div className="offerInfo">
         <div className="technicalInfoProduct">
           <span className="productPrice">{offerData.product_price}</span>

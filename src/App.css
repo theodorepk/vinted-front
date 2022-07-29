@@ -1,26 +1,74 @@
+/* HEADER */
+
+.logo {
+  margin-left: 20px;
+  font-size: 40px;
+  color: #017580;
+  font-weight: bold;
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  background-color: aqua;
+  align-items: center;
+  /* background-color: aqua; */
+  border-bottom: solid 1px gray;
+  align-self: flex-start;
+  height: 50px;
 }
 
 .searchBar {
-  width: 300px;
+  width: 700px;
+  height: 40px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 5px;
+}
+
+.searchBar div {
+  padding: 10px;
+}
+
+.searchBar span {
+  color: darkgray;
 }
 
 .buttons {
   display: flex;
-  width: 300px;
+  /* width: 300px; */
   justify-content: space-between;
+  /* background-color: red; */
 }
+
+.buttons button {
+  border: #017580 1px solid;
+  border-radius: 5px;
+  background-color: white;
+  color: #017580;
+  /* height: 25px; */
+  padding: 10px 20px;
+  margin-right: 10px;
+}
+
+.buttons div {
+  margin-right: 40px;
+}
+
+.buttons > button {
+  background-color: #017580;
+  color: white;
+}
+
+/* HERO */
 
 .hero {
   height: 200px;
-  background-color: aquamarine;
+  background-color: #017580;
 }
 
+/* HOME */
 .homeOffers {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +99,12 @@ header {
 /* ------ OFFER ---------- */
 .offer {
   display: flex;
+}
+
+.offer img {
+  height: 624px;
+  width: 452.5px;
+  object-fit: cover;
 }
 
 .offerInfo {
