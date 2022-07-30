@@ -1,0 +1,50 @@
+import axios from "axios";
+import { useState } from "react";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (event) => {
+    alert("Bienvenue chez vous");
+    event.preventDefault();
+    try {
+      await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email,
+          password,
+        }
+      );
+      //   console.log(response);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  };
+
+  return (
+    <div>
+      <form action="" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Adresse email"
+          onChange={(event) => {
+            setEmail(event.target.value);
+          }}
+          value={email}
+        />
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          onChange={(event) => {
+            setPassword(event.target.value);
+          }}
+          value={password}
+        />
+        <input type="submit" value="Se connecter" />
+      </form>
+    </div>
+  );
+};
+
+export default Login;
