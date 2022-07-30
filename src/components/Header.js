@@ -1,7 +1,9 @@
+import logo from "../assets/Vinted_logo.png";
+
 const Header = () => {
   return (
     <header>
-      <div className="logo">vinted </div>
+      <img src={logo} alt="logo Vinted" className="logo" />
       <input className="searchBar" placeholder="🔍 rechercher des articles" />
       <div className="buttons">
         <div>

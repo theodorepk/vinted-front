@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
