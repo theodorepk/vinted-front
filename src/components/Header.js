@@ -2,10 +2,7 @@ const Header = () => {
   return (
     <header>
       <div className="logo">vinted </div>
-      <div className="searchBar">
-        <div>🔍</div>
-        <span>rechercher des articles</span>
-      </div>
+      <input className="searchBar" placeholder="🔍 rechercher des articles" />
       <div className="buttons">
         <div>
           <button>s'inscrire</button>
