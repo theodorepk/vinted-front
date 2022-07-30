@@ -148,3 +148,16 @@ header {
 h2 {
   margin-bottom: 10px;
 }
+
+/* ------SIGN UP -------- */
+
+form {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  max-width: 300px;
+}

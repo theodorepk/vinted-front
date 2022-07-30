@@ -1,14 +1,14 @@
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 const SignUp = () => {
   //   const [isLoading, setIsLoading] = useState(true);
 
   const [signupInfo, setSignupInfo] = useState({
     email: "",
-    userName: "",
+    username: "",
     password: "",
-    newsletter: false,
+    newsletter: true,
   });
 
   const handleEmail = (event) => {
@@ -17,9 +17,9 @@ const SignUp = () => {
     setSignupInfo(tab);
   };
 
-  const handleUserName = (event) => {
+  const handleusername = (event) => {
     const tab = { ...signupInfo };
-    tab.userName = event.target.value;
+    tab.username = event.target.value;
     setSignupInfo(tab);
   };
 
@@ -29,21 +29,33 @@ const SignUp = () => {
     setSignupInfo(tab);
   };
 
-  const handleNewsletter = (event) => {
-    console.log(event.target);
+  const handleNewsletter = () => {
     const tab = { ...signupInfo };
     tab.newsletter = !tab.newsletter;
     setSignupInfo(tab);
   };
 
+  const handleSubmit = async (event) => {
+    alert("Votre compte est créé");
+    event.preventDefault();
+    try {
+      await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        signupInfo
+      );
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
   return (
     <div>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <input
           type="text"
-          value={signupInfo.userName}
+          value={signupInfo.username}
           placeholder="Nom d'utilisateur"
-          onChange={handleUserName}
+          onChange={handleusername}
         />
         <input
           type="email"
@@ -52,21 +64,24 @@ const SignUp = () => {
           onChange={handleEmail}
         />
         <input
-          type
+          type="password"
           value={signupInfo.password}
           placeholder="Mot de passe"
           onChange={handlePassword}
         />
 
-        {/* <Checkbox
-          //   type="checkbox"
-          label="newsletter"
-          value={signupInfo.newsletter}
+        <input
+          type="checkbox"
+          name="newsletter"
+          checked={signupInfo.newsletter}
           onChange={handleNewsletter}
-        /> */}
-        {/* <label htmlFor="newsletter">
+        />
+
+        <label htmlFor="newsletter">
           Je souhaites recevoir les newsletter 😍
-        </label> */}
+        </label>
+
+        <input type="submit" value="Créér votre compte" />
       </form>
     </div>
   );
