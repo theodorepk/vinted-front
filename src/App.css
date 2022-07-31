@@ -41,9 +41,9 @@ header {
   border-radius: 5px;
   background-color: white;
   color: #017580;
-  /* height: 25px; */
   padding: 10px 20px;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .buttons button:active {
@@ -57,6 +57,7 @@ header {
 .buttons > button {
   background-color: #017580;
   color: white;
+  cursor: pointer;
 }
 
 .buttons > button:active {
