@@ -34,19 +34,22 @@ const Home = () => {
               {/* some offers don't have owner */}
               {element.owner && (
                 <div className="infoOwner">
-                  <img
-                    src={element.owner.account.avatar.secure_url}
-                    alt="avatar du vendeur"
-                  />
+                  {element.owner.account.avatar && (
+                    <img
+                      src={element.owner.account.avatar.secure_url}
+                      alt="avatar du vendeur"
+                    />
+                  )}
+
                   <span> {element.owner.account.username}</span>
                 </div>
               )}
-              {
+              {element.product_image.secure_url && (
                 <img
                   src={element.product_image.secure_url}
                   alt="produit vendu"
                 />
-              }
+              )}
             </Link>
           );
         })}

@@ -33,9 +33,7 @@ header {
 
 .buttons {
   display: flex;
-  /* width: 300px; */
   justify-content: space-between;
-  /* background-color: red; */
 }
 
 .buttons button {
@@ -48,6 +46,10 @@ header {
   margin-right: 10px;
 }
 
+.buttons button:active {
+  background-color: rgb(229, 229, 229);
+}
+
 .buttons div {
   margin-right: 40px;
 }
@@ -55,6 +57,10 @@ header {
 .buttons > button {
   background-color: #017580;
   color: white;
+}
+
+.buttons > button:active {
+  background-color: #015f68;
 }
 
 /* HERO */

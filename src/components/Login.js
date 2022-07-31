@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ const Login = () => {
         }
       );
       console.log(response.data);
+      Cookies.set("token", response.data.token, { expires: 7 });
     } catch (error) {
       console.log(error.response.data.message);
     }
