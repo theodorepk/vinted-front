@@ -39,10 +39,11 @@ const SignUp = () => {
     alert("Votre compte est créé");
     event.preventDefault();
     try {
-      await axios.post(
+      const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         signupInfo
       );
+      console.log(response);
     } catch (error) {
       console.log(error.response.data.message);
     }

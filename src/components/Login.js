@@ -9,14 +9,14 @@ const Login = () => {
     alert("Bienvenue chez vous");
     event.preventDefault();
     try {
-      await axios.post(
+      const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
-          email,
-          password,
+          email: email,
+          password: password,
         }
       );
-      //   console.log(response);
+      console.log(response.data);
     } catch (error) {
       console.log(error.response.data.message);
     }
