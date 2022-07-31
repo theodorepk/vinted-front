@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUserToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     alert("Bienvenue chez vous");
@@ -20,8 +21,8 @@ const Login = ({ setUser }) => {
       );
       //   console.log(response.data);
       Cookies.set("token", response.data.token, { expires: 7 });
-      setUser(response.data.token);
-      useNavigate(`/`);
+      setUserToken(response.data.token);
+      navigate(`/`);
     } catch (error) {
       console.log(error.response);
     }

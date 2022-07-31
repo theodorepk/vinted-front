@@ -2,7 +2,6 @@
 
 .logo {
   margin-left: 20px;
-
   height: 30px;
 }
 
@@ -37,10 +36,10 @@ header {
 }
 
 .buttons button {
-  border: #017580 1px solid;
+  border: #09b0ba 1px solid;
   border-radius: 5px;
   background-color: white;
-  color: #017580;
+  color: #09b0ba;
   padding: 10px 20px;
   margin-right: 10px;
   cursor: pointer;
@@ -55,7 +54,7 @@ header {
 }
 
 .buttons > button {
-  background-color: #017580;
+  background-color: #09b0ba;
   color: white;
   cursor: pointer;
 }
@@ -68,7 +67,7 @@ header {
 
 .hero {
   height: 455px;
-  background-color: #017580;
+  background-color: #09b0ba;
   background-image: url("./assets/tear.42d6cec6.svg"),
     url("./assets/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg");
   background-position: bottom right, center;

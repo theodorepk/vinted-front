@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import Home from "./components/pages/Home";
 import Header from "./components/Header";
 import Offer from "./components/pages/Offer";
@@ -8,17 +9,24 @@ import SignUp from "./components/pages/Signup";
 import Login from "./components/Login";
 
 function App() {
-  const [user, setUser] = useState(``);
+  const [userToken, setUserToken] = useState(``);
+
+  useEffect(() => {
+    setUserToken(Cookies.get(`token`));
+  });
 
   return (
     <div className="App">
       <Router>
-        <Header user={user} setUser={setUser} />
+        <Header userToken={userToken} setUserToken={setUserToken} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/offer/:id" element={<Offer />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route
+            path="/login"
+            element={<Login setUserToken={setUserToken} />}
+          />
         </Routes>
       </Router>
     </div>

@@ -2,9 +2,7 @@ import logo from "../assets/Vinted_logo.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-console.log(Cookies.get("token"));
-
-const Header = ({ user, setUser }) => {
+const Header = ({ userToken, setUserToken }) => {
   return (
     <header>
       <Link to={"/"}>
@@ -14,22 +12,21 @@ const Header = ({ user, setUser }) => {
       <input className="searchBar" placeholder="🔍 rechercher des articles" />
       <div className="buttons">
         <div>
-          {!user && (
+          {!userToken && (
             <Link to={"/signup"}>
               <button> s'inscrire</button>
             </Link>
           )}
-          {!user && (
+          {!userToken && (
             <Link to={"/login"}>
               <button> se connecter</button>
             </Link>
           )}
-
-          {user && (
+          {userToken && (
             <button
               onClick={() => {
                 Cookies.remove("token");
-                setUser(``);
+                setUserToken(``);
               }}
             >
               Se déconnecter
