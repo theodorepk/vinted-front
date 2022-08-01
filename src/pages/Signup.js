@@ -1,9 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
-  //   const [isLoading, setIsLoading] = useState(true);
-
+const SignUp = ({ setUserToken }) => {
   const [signupInfo, setSignupInfo] = useState({
     email: "",
     username: "",
@@ -35,6 +35,8 @@ const SignUp = () => {
     setSignupInfo(tab);
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     alert("Votre compte est créé");
     event.preventDefault();
@@ -46,6 +48,20 @@ const SignUp = () => {
       console.log(response);
     } catch (error) {
       console.log(error.response.data.message);
+    }
+    try {
+      const response = await axios.post(
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        {
+          email: signupInfo.email,
+          password: signupInfo.password,
+        }
+      );
+      Cookies.set("token", response.data.token, { expires: 7 });
+      setUserToken(response.data.token);
+      navigate(`/`);
+    } catch (error) {
+      console.log(error.response);
     }
   };
 
