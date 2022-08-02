@@ -66,7 +66,8 @@ const SignUp = ({ setUserToken }) => {
   };
 
   return (
-    <div>
+    <div className="signUp">
+      <h2> S'inscrire </h2>
       <form action="" onSubmit={handleSubmit}>
         <input
           type="text"
@@ -87,18 +88,22 @@ const SignUp = ({ setUserToken }) => {
           onChange={handlePassword}
         />
 
+        <div className="newsLetter">
+          <input
+            type="checkbox"
+            name="newsletter"
+            checked={signupInfo.newsletter}
+            onChange={handleNewsletter}
+          />
+          <label htmlFor="newsletter">
+            Je souhaites recevoir les newsletter 😍
+          </label>
+        </div>
         <input
-          type="checkbox"
-          name="newsletter"
-          checked={signupInfo.newsletter}
-          onChange={handleNewsletter}
+          type="submit"
+          value="Créér votre compte"
+          className="submitButton"
         />
-
-        <label htmlFor="newsletter">
-          Je souhaites recevoir les newsletter 😍
-        </label>
-
-        <input type="submit" value="Créér votre compte" />
       </form>
     </div>
   );
