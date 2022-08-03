@@ -2,28 +2,26 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
+const Home = ({ data }) => {
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
-        );
-        setData(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(error.response);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://lereacteur-vinted-api.herokuapp.com/offers"
+  //       );
+  //       setData(response.data);
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.log(error.response);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
-  return isLoading ? (
-    <span>En cours de chargement</span>
-  ) : (
+  return (
     <div>
       <div className="hero"></div>
       <div className="homeOffers">

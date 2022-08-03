@@ -45,28 +45,16 @@ const SignUp = ({ setUserToken }) => {
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         signupInfo
       );
-      console.log(response);
-    } catch (error) {
-      console.log(error.response.data.message);
-    }
-    try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        {
-          email: signupInfo.email,
-          password: signupInfo.password,
-        }
-      );
       Cookies.set("token", response.data.token, { expires: 7 });
       setUserToken(response.data.token);
       navigate(`/`);
     } catch (error) {
-      console.log(error.response);
+      console.log(error.response.data.message);
     }
   };
 
   return (
-    <div className="signUp">
+    <div className="accountForm">
       <h2> S'inscrire </h2>
       <form action="" onSubmit={handleSubmit}>
         <input

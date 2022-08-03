@@ -29,7 +29,8 @@ const Login = ({ setUserToken }) => {
   };
 
   return (
-    <div>
+    <div className="accountForm">
+      <h2>Se connecter</h2>
       <form action="" onSubmit={handleSubmit}>
         <input
           type="email"
@@ -47,7 +48,7 @@ const Login = ({ setUserToken }) => {
           }}
           value={password}
         />
-        <input type="submit" value="Se connecter" />
+        <input type="submit" value="Se connecter" className="submitButton" />
       </form>
     </div>
   );

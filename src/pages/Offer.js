@@ -8,7 +8,6 @@ const Offer = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // const { id } = useParams();
     const fetchData = async () => {
       try {
         const response = await axios.get(

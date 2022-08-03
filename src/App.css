@@ -153,12 +153,12 @@ h2 {
 
 /* ------SIGN UP -------- */
 
-.signUp {
+.accountForm {
   display: flex;
   flex-direction: column;
 }
 
-.signUp h2 {
+.accountForm h2 {
   font-size: 26px;
   align-self: center;
   margin-top: 40px;
@@ -198,4 +198,8 @@ form input {
   color: white;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.submitButton:active {
+  background-color: #015f68;
 }
