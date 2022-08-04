@@ -15,11 +15,20 @@ function App() {
   const [data, setData] = useState(null);
   const [sortPrice, setSortPrice] = useState(true);
 
+  let sort = ``;
+  if (sortPrice) {
+    sort = `price-asc`;
+    console.log(`- au +`);
+  } else {
+    sort = `price-desc`;
+    console.log(`+ au -`);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -28,7 +37,7 @@ function App() {
       }
     };
     fetchData();
-  }, []);
+  }, [sortPrice]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
