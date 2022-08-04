@@ -14,21 +14,18 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
   const [sortPrice, setSortPrice] = useState(true);
-
-  let sort = ``;
-  if (sortPrice) {
-    sort = `price-asc`;
-    console.log(`- au +`);
-  } else {
-    sort = `price-desc`;
-    console.log(`+ au -`);
-  }
+  const [priceMin, setPriceMin] = useState(``);
+  const [priceMax, setPriceMax] = useState(``);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${sort}`
+          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${
+            sortPrice ? `price-asc` : `price-desc`
+          }&priceMin=${priceMin ? priceMin : ``}&priceMax=${
+            priceMax ? priceMax : ``
+          }`
         );
         setData(response.data);
         setIsLoading(false);
@@ -37,7 +34,7 @@ function App() {
       }
     };
     fetchData();
-  }, [sortPrice]);
+  }, [sortPrice, priceMin, priceMax]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -48,6 +45,10 @@ function App() {
           userToken={userToken}
           setUserToken={setUserToken}
           setSortPrice={setSortPrice}
+          setPriceMax={setPriceMax}
+          setPriceMin={setPriceMin}
+          priceMax={priceMax}
+          priceMin={priceMin}
           sortPrice={sortPrice}
         />
         <Routes>
