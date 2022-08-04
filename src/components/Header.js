@@ -11,6 +11,8 @@ const Header = ({
   priceMax,
   setPriceMin,
   setPriceMax,
+  title,
+  setTitle,
 }) => {
   return (
     <header>
@@ -18,7 +20,14 @@ const Header = ({
         <img src={logo} alt="logo Vinted" className="logo" />
       </Link>
       <div className="searchZone">
-        <input className="searchBar" placeholder="🔍 rechercher des articles" />
+        <input
+          className="searchBar"
+          placeholder="🔍 rechercher des articles"
+          value={title}
+          onChange={(event) => {
+            setTitle(event.target.value);
+          }}
+        />
         <div className="sorting">
           <input
             type="checkbox"

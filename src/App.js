@@ -16,12 +16,13 @@ function App() {
   const [sortPrice, setSortPrice] = useState(true);
   const [priceMin, setPriceMin] = useState(``);
   const [priceMax, setPriceMax] = useState(``);
+  const [title, setTitle] = useState(``);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?sort=${
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${title}&sort=${
             sortPrice ? `price-asc` : `price-desc`
           }&priceMin=${priceMin ? priceMin : ``}&priceMax=${
             priceMax ? priceMax : ``
@@ -34,7 +35,7 @@ function App() {
       }
     };
     fetchData();
-  }, [sortPrice, priceMin, priceMax]);
+  }, [sortPrice, priceMin, priceMax, title]);
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -50,6 +51,8 @@ function App() {
           priceMax={priceMax}
           priceMin={priceMin}
           sortPrice={sortPrice}
+          setTitle={setTitle}
+          title={title}
         />
         <Routes>
           <Route path="/" element={<Home data={data} />} />
