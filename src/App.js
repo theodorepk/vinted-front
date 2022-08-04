@@ -13,6 +13,7 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [sortPrice, setSortPrice] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +35,12 @@ function App() {
   ) : (
     <div className="App">
       <Router>
-        <Header userToken={userToken} setUserToken={setUserToken} />
+        <Header
+          userToken={userToken}
+          setUserToken={setUserToken}
+          setSortPrice={setSortPrice}
+          sortPrice={sortPrice}
+        />
         <Routes>
           <Route path="/" element={<Home data={data} />} />
           <Route path="/offer/:id" element={<Offer />} />

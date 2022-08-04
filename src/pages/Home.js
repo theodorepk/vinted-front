@@ -1,26 +1,6 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useEffect, useState } from "react";
 
 const Home = ({ data }) => {
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://lereacteur-vinted-api.herokuapp.com/offers"
-  //       );
-  //       setData(response.data);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.log(error.response);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
   return (
     <div>
       <div className="hero"></div>
