@@ -28,14 +28,18 @@ const Header = ({
             setTitle(event.target.value);
           }}
         />
+
         <div className="sorting">
+          <label htmlFor="priceSorting">Prix Croissant / décroissant</label>
           <input
             type="checkbox"
+            name="priceSorting"
             checked={sortPrice}
             onChange={() => {
               setSortPrice((prev) => !prev);
             }}
           />
+          <label htmlFor="priceMin">Prix Mininum</label>
           <input
             type="text"
             name="princeMin"
@@ -44,6 +48,7 @@ const Header = ({
               setPriceMin(event.target.value);
             }}
           />
+          <label htmlFor="priceMax">Prix Maximum</label>
           <input
             type="text"
             name="princeMax"

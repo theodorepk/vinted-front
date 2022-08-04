@@ -10,7 +10,7 @@ header {
   justify-content: space-between;
   align-items: center;
   align-self: flex-start;
-  height: 50px;
+  height: 90px;
 }
 
 .searchBar {
@@ -29,6 +29,16 @@ header {
 
 .searchBar span {
   color: darkgray;
+}
+
+.searchZone {
+  display: flex;
+  flex-direction: column;
+}
+
+.sorting input {
+  margin: 10px 20px 0 0;
+  width: 20px;
 }
 
 .buttons {
