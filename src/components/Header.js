@@ -61,7 +61,7 @@ const Header = ({
       </div>
 
       <div className="buttons">
-        <div>
+        <div className="profileButton">
           {!userToken && (
             <Link to={"/signup"}>
               <button> s'inscrire</button>
@@ -83,8 +83,9 @@ const Header = ({
             </button>
           )}
         </div>
-
-        <button>vendre des articles</button>
+        <Link to={"/publish"}>
+          <button className="sellButton">vendre des articles</button>
+        </Link>
       </div>
     </header>
   );

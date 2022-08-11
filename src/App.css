@@ -47,16 +47,19 @@ header {
 }
 
 .buttons button {
-  border: #09b0ba 1px solid;
   border-radius: 5px;
-  background-color: white;
-  color: #09b0ba;
   padding: 10px 20px;
   margin-right: 10px;
   cursor: pointer;
+  border: #09b0ba 1px solid;
 }
 
-.buttons button:active {
+.profileButton button {
+  background-color: white;
+  color: #09b0ba;
+}
+
+.profileButton button:active {
   background-color: rgb(229, 229, 229);
 }
 
@@ -64,13 +67,13 @@ header {
   margin-right: 40px;
 }
 
-.buttons > button {
+.sellButton {
   background-color: #09b0ba;
   color: white;
   cursor: pointer;
 }
 
-.buttons > button:active {
+.sellButton:active {
   background-color: #015f68;
 }
 

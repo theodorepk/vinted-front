@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Offer from "./pages/Offer";
 import SignUp from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
@@ -65,6 +66,7 @@ function App() {
             path="/login"
             element={<Login setUserToken={setUserToken} />}
           />
+          <Route path="/publish" element={<Publish userToken={userToken} />} />
         </Routes>
       </Router>
     </div>
