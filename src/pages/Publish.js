@@ -4,7 +4,7 @@ import axios from "axios";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState(``);
-  const [price, setPrice] = useState(``);
+  const [price, setPrice] = useState(0);
 
   return (
     <div className="publish">
@@ -15,10 +15,11 @@ const Publish = ({ userToken }) => {
           formData.append("picture", file);
           formData.append(`title`, title);
           formData.append(`price`, price);
+          //   forData;
 
-          for (let toto of formData.entries()) {
-            console.log("key : ", toto[0], " ->  value : ", toto[1]);
-          }
+          //   for (let toto of formData.entries()) {
+          //     console.log("key : ", toto[0], " ->  value : ", toto[1]);
+          //   }
 
           try {
             const response = await axios.post(
@@ -63,24 +64,30 @@ const Publish = ({ userToken }) => {
           }}
         />
 
-        <div>
-          <label htmlFor="brand"> Marque</label>
-          <input type="text" id="brand" />
-
-          <label htmlFor="size"> Taille</label>
-          <input type="text" id="size" />
-
-          <label htmlFor="color">Couleur</label>
-          <input type="text" id="color" />
-
-          <label htmlFor="conditon">Etat</label>
-          <input type="text" id="condition" />
-
-          <label htmlFor="place">Lieu</label>
-          <input type="text" id="place" />
+        <div className="sellOtherData">
+          <div>
+            <label htmlFor="brand"> Marque</label>
+            <input type="text" id="brand" />
+          </div>
+          <div>
+            <label htmlFor="size"> Taille</label>
+            <input type="text" id="size" />
+          </div>
+          <div>
+            <label htmlFor="color">Couleur</label>
+            <input type="text" id="color" />
+          </div>
+          <div>
+            <label htmlFor="conditon">Etat</label>
+            <input type="text" id="condition" />
+          </div>
+          <div>
+            <label htmlFor="place">Lieu</label>
+            <input type="text" id="place" />
+          </div>
         </div>
 
-        <input type="submit" />
+        <input type="submit" className="submitButton" />
       </form>
     </div>
   );

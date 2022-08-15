@@ -139,6 +139,7 @@ header {
 .offerInfo {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 400px;
   background-color: white;
 }
@@ -162,6 +163,19 @@ header {
 
 h2 {
   margin-bottom: 10px;
+}
+
+.buyButton {
+  margin: 20px;
+  background-color: #09b0ba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.buyButton:active {
+  background-color: #015f68;
 }
 
 /* ------SIGN UP -------- */
@@ -215,4 +229,11 @@ form input {
 
 .submitButton:active {
   background-color: #015f68;
+}
+
+/* --------- Sell articles --------- */
+
+.sellOtherData {
+  display: flex;
+  flex-direction: column;
 }
