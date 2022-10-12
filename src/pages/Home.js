@@ -1,33 +1,15 @@
 import { Link } from "react-router-dom";
+import MiniProduct from "../components/MiniProduct";
 
 const Home = ({ data }) => {
   return (
     <div>
       <div className="hero"></div>
       <div className="homeOffers">
-        {data.offers.map((element, index) => {
+        {data.offers.map((product, index) => {
           return (
-            <Link className="product" key={index} to={`/offer/${element._id}`}>
-              <span>{element.product_name}</span>
-              {/* some offers don't have owner */}
-              {element.owner && (
-                <div className="infoOwner">
-                  {element.owner.account.avatar && (
-                    <img
-                      src={element.owner.account.avatar.secure_url}
-                      alt="avatar du vendeur"
-                    />
-                  )}
-
-                  <span> {element.owner.account.username}</span>
-                </div>
-              )}
-              {element.product_image.secure_url && (
-                <img
-                  src={element.product_image.secure_url}
-                  alt="produit vendu"
-                />
-              )}
+            <Link className="product" key={index} to={`/offer/${product._id}`}>
+              <MiniProduct product={product} />
             </Link>
           );
         })}
