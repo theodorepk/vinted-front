@@ -43,7 +43,11 @@ const Offer = () => {
               </ul>
               <ul>
                 {offerData.product_details.map((element, index) => {
-                  return <li key={index}>{element[Object.keys(element)]}</li>;
+                  return (
+                    <li key={index}>
+                      {element[Object.keys(element)].toUpperCase()}
+                    </li>
+                  );
                 })}
               </ul>
             </div>
@@ -53,12 +57,15 @@ const Offer = () => {
             <span className="productDescription">
               {offerData.product_description}
             </span>
-            {offerData.owner && (
-              <div className="ownerInfo">
-                <div>image</div>
-                <span>{offerData.owner.account.username}</span>
-              </div>
-            )}
+            <div className="ownerInfo">
+              {offerData.owner.account.avatar && (
+                <img
+                  src={offerData.owner.account.avatar.secure_url}
+                  alt="avatar du vendeur"
+                />
+              )}
+              <span> {offerData.owner.account.username}</span>
+            </div>
           </div>
           <Link to={"/payment"}>
             <button className="buyButton">Acheter</button>

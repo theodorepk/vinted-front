@@ -1,20 +1,21 @@
 const MiniProduct = ({ product }) => {
   return (
-    <div>
+    <div
+      onClick={() => {
+        console.log(product);
+      }}
+    >
       {/* some offers don't have owner */}
-      {product.owner && (
-        <div className="infoOwner">
-          {product.owner.account.avatar && (
-            <>
-              <img
-                src={product.owner.account.avatar.secure_url}
-                alt="avatar du vendeur"
-              />
-              <span> {product.owner.account.username}</span>
-            </>
-          )}
-        </div>
-      )}
+      <div className="infoOwner">
+        {product.owner.account.avatar && (
+          <img
+            src={product.owner.account.avatar.secure_url}
+            alt="avatar du vendeur"
+          />
+        )}
+        <span> {product.owner.account.username}</span>
+      </div>
+
       {product.product_image.secure_url && (
         <img src={product.product_image.secure_url} alt="produit vendu" />
       )}
