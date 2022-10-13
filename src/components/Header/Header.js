@@ -18,7 +18,7 @@ const Header = ({
   const location = useLocation();
 
   return (
-    <header>
+    <header className="container">
       <Link to={"/"}>
         <img src={logo} alt="logo Vinted" className="logo" />
       </Link>

@@ -37,7 +37,7 @@
   color: lightgrey;
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 12px;
   img {
     height: 40px;
@@ -49,8 +49,12 @@
 
 .infoProduct {
   font-size: 14px;
-  div:nth-child(n + 2) {
-    color: lightgray;
-    font-size: 12px;
+
+  div {
+    margin-bottom: 2px;
+    &:nth-child(n + 2) {
+      color: lightgray;
+      font-size: 12px;
+    }
   }
 }
