@@ -1,5 +1,9 @@
-/* --------- Sell articles --------- */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
 
+/* --------- Sell articles --------- */
 .sellOtherData {
   display: flex;
   flex-direction: column;
