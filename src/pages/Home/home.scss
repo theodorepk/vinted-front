@@ -1,0 +1,39 @@
+/* HERO */
+
+.hero {
+  height: 455px;
+  background-color: #09b0ba;
+  background-image: url("../../assets/tear.42d6cec6.svg"),
+    url("../../assets/banner-wide-9b45d0aa9a311c4ff6013e9cf3bc2b6646468be3d2f553192c63598685fcc177.jpg");
+  background-position: bottom right, center;
+  background-repeat: no-repeat;
+  background-size: 50%, cover;
+}
+
+/* HOME */
+.homeOffers {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  background-color: lightcoral;
+  width: 195px;
+  text-decoration: none;
+  color: black;
+}
+
+.product img {
+  height: 325px;
+  width: 195px;
+  object-fit: cover;
+}
+
+.infoOwner img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}

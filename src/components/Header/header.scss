@@ -1,0 +1,78 @@
+/* HEADER */
+
+.logo {
+  margin-left: 20px;
+  height: 30px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: flex-start;
+  height: 90px;
+}
+
+.searchBar {
+  width: 700px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  border: none;
+}
+
+.searchBar div {
+  padding: 10px;
+}
+
+.searchBar span {
+  color: darkgray;
+}
+
+.searchZone {
+  display: flex;
+  flex-direction: column;
+}
+
+.sorting input {
+  margin: 10px 20px 0 0;
+  width: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: #09b0ba 1px solid;
+}
+
+.profileButton button {
+  background-color: white;
+  color: #09b0ba;
+}
+
+.profileButton button:active {
+  background-color: rgb(229, 229, 229);
+}
+
+.buttons div {
+  margin-right: 40px;
+}
+
+.sellButton {
+  background-color: #09b0ba;
+  color: white;
+  cursor: pointer;
+}
+
+.sellButton:active {
+  background-color: #015f68;
+}

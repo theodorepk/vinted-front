@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import "./signup.scss";
 
 const SignUp = ({ setUserToken }) => {
   const [signupInfo, setSignupInfo] = useState({

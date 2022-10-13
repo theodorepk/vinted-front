@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-import MiniProduct from "../components/MiniProduct";
+import MiniProduct from "../../components/MiniProduct";
+
+import "./home.scss";
 
 const Home = ({ data }) => {
   return (

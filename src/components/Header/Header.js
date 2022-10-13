@@ -1,6 +1,7 @@
-import logo from "../assets/Vinted_logo.png";
+import logo from "../../assets/Vinted_logo.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import "./header.scss";
 
 const Header = ({
   userToken,

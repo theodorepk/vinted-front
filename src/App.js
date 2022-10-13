@@ -3,13 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import Home from "./pages/Home";
-import Header from "./components/Header";
-import Offer from "./pages/Offer";
-import SignUp from "./pages/Signup";
-import Login from "./pages/Login";
-import Publish from "./pages/Publish";
-import Payment from "./pages/Payment";
+import Home from "./pages/Home/Home";
+import Header from "./components/Header/Header";
+import Offer from "./pages/Offer/Offer";
+import SignUp from "./pages/Signup/Signup";
+import Login from "./pages/Login/Login";
+import Publish from "./pages/Publish/Publish";
+import Payment from "./pages/Payment/Payment";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
@@ -19,8 +19,6 @@ function App() {
   const [priceMin, setPriceMin] = useState(``);
   const [priceMax, setPriceMax] = useState(``);
   const [title, setTitle] = useState(``);
-
-  // test
 
   useEffect(() => {
     const fetchData = async () => {
