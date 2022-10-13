@@ -14,7 +14,6 @@ const Offer = () => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        console.log(response.data);
         setOfferData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -23,8 +22,6 @@ const Offer = () => {
     };
     fetchData();
   }, [id]);
-
-  // console.log(fetchData);
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -45,7 +42,8 @@ const Offer = () => {
                 {offerData.product_details.map((element, index) => {
                   return (
                     <li key={index}>
-                      {element[Object.keys(element)].toUpperCase()}
+                      {element[Object.keys(element)] &&
+                        element[Object.keys(element)].toUpperCase()}
                     </li>
                   );
                 })}

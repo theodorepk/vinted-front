@@ -1,5 +1,5 @@
 import logo from "../../assets/Vinted_logo.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
 
@@ -15,6 +15,8 @@ const Header = ({
   title,
   setTitle,
 }) => {
+  const location = useLocation();
+
   return (
     <header>
       <Link to={"/"}>
@@ -30,35 +32,37 @@ const Header = ({
           }}
         />
 
-        <div className="sorting">
-          <label htmlFor="priceSorting">Prix Croissant / décroissant</label>
-          <input
-            type="checkbox"
-            name="priceSorting"
-            checked={sortPrice}
-            onChange={() => {
-              setSortPrice((prev) => !prev);
-            }}
-          />
-          <label htmlFor="priceMin">Prix Mininum</label>
-          <input
-            type="text"
-            name="princeMin"
-            value={priceMin}
-            onChange={(event) => {
-              setPriceMin(event.target.value);
-            }}
-          />
-          <label htmlFor="priceMax">Prix Maximum</label>
-          <input
-            type="text"
-            name="princeMax"
-            value={priceMax}
-            onChange={(event) => {
-              setPriceMax(event.target.value);
-            }}
-          />
-        </div>
+        {location.pathname === "/" && (
+          <div className="sorting">
+            <label htmlFor="priceSorting">Prix Croissant / décroissant</label>
+            <input
+              type="checkbox"
+              name="priceSorting"
+              checked={sortPrice}
+              onChange={() => {
+                setSortPrice((prev) => !prev);
+              }}
+            />
+            <label htmlFor="priceMin">Prix Mininum</label>
+            <input
+              type="text"
+              name="princeMin"
+              value={priceMin}
+              onChange={(event) => {
+                setPriceMin(event.target.value);
+              }}
+            />
+            <label htmlFor="priceMax">Prix Maximum</label>
+            <input
+              type="text"
+              name="princeMax"
+              value={priceMax}
+              onChange={(event) => {
+                setPriceMax(event.target.value);
+              }}
+            />
+          </div>
+        )}
       </div>
 
       <div className="buttons">

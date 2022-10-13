@@ -1,10 +1,6 @@
 const MiniProduct = ({ product }) => {
   return (
-    <div
-      onClick={() => {
-        console.log(product);
-      }}
-    >
+    <div>
       {/* some offers don't have owner */}
       <div className="infoOwner">
         {product.owner.account.avatar && (
