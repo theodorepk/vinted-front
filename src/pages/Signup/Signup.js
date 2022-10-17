@@ -11,6 +11,7 @@ const SignUp = ({ setUserToken }) => {
     password: "",
     newsletter: true,
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleEmail = (event) => {
     const tab = { ...signupInfo };
@@ -50,6 +51,9 @@ const SignUp = ({ setUserToken }) => {
       navigate(`/`);
       alert("Votre compte est créé");
     } catch (error) {
+      if (error.response.status === 409) {
+        setErrorMessage("conflict");
+      }
       alert("Une erreur est survenue");
       console.log(error.response.data.message);
     }
@@ -77,6 +81,9 @@ const SignUp = ({ setUserToken }) => {
           placeholder="Mot de passe"
           onChange={handlePassword}
         />
+        <span className="errorMessage">
+          {errorMessage === "conflict" && "L'adresse mail est déjà utilisée"}
+        </span>
 
         <div className="newsLetter">
           <input

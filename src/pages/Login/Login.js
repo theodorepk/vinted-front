@@ -6,14 +6,15 @@ import Cookies from "js-cookie";
 const Login = ({ setUserToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/users/login", {
-        email: email,
-        password: password,
+        email,
+        password,
       });
       console.log(response.data);
       Cookies.set("token", response.data.token, { expires: 7 });
@@ -21,7 +22,11 @@ const Login = ({ setUserToken }) => {
       navigate(`/`);
       alert("Bienvenue chez vous");
     } catch (error) {
-      console.log(error.response);
+      if (error.response.status === 401) {
+        setErrorMessage("password");
+      } else if (error.response.status === 404) {
+        setErrorMessage("inexistant");
+      }
     }
   };
 
@@ -36,7 +41,12 @@ const Login = ({ setUserToken }) => {
             setEmail(event.target.value);
           }}
           value={email}
+          className={errorMessage === "inexistant" ? "errorInput" : false}
         />
+        <span className="errorMessage">
+          {errorMessage === "inexistant" &&
+            "Impossible de trouver un compte correspondant à cet e-mail"}
+        </span>
         <input
           type="password"
           placeholder="Mot de passe"
@@ -44,7 +54,11 @@ const Login = ({ setUserToken }) => {
             setPassword(event.target.value);
           }}
           value={password}
+          className={errorMessage === "password" ? "errorInput" : false}
         />
+        <span className="errorMessage">
+          {errorMessage === "password" && "Mauvais mot de passe"}
+        </span>
         <input type="submit" value="Se connecter" className="submitButton" />
       </form>
     </div>
