@@ -22,9 +22,10 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
+      // https://lereacteur-vinted-api.herokuapp.com
       try {
         const response = await axios.get(
-          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${title}&sort=${
+          `http://localhost:3000/offers?title=${title}&sort=${
             sortPrice ? `price-asc` : `price-desc`
           }&priceMin=${priceMin ? priceMin : ``}&priceMax=${
             priceMax ? priceMax : ``

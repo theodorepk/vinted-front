@@ -39,17 +39,18 @@ const SignUp = ({ setUserToken }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    alert("Votre compte est créé");
     event.preventDefault();
     try {
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "http://localhost:3000/users/signup",
         signupInfo
       );
       Cookies.set("token", response.data.token, { expires: 7 });
       setUserToken(response.data.token);
       navigate(`/`);
+      alert("Votre compte est créé");
     } catch (error) {
+      alert("Une erreur est survenue");
       console.log(error.response.data.message);
     }
   };

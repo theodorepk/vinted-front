@@ -9,20 +9,17 @@ const Login = ({ setUserToken }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
-    alert("Bienvenue chez vous");
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/login",
-        {
-          email: email,
-          password: password,
-        }
-      );
-      //   console.log(response.data);
+      const response = await axios.post("http://localhost:3000/users/login", {
+        email: email,
+        password: password,
+      });
+      console.log(response.data);
       Cookies.set("token", response.data.token, { expires: 7 });
       setUserToken(response.data.token);
       navigate(`/`);
+      alert("Bienvenue chez vous");
     } catch (error) {
       console.log(error.response);
     }
