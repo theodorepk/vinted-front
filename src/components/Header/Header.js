@@ -1,5 +1,5 @@
 import logo from "../../assets/Vinted_logo.png";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
 
@@ -16,6 +16,7 @@ const Header = ({
   setTitle,
 }) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header className="container">
@@ -88,9 +89,15 @@ const Header = ({
             </button>
           )}
         </div>
-        <Link to={"/publish"}>
-          <button className="sellButton">vendre des articles</button>
-        </Link>
+
+        <button
+          className="sellButton"
+          onClick={() => {
+            userToken ? navigate("/publish") : navigate("/login");
+          }}
+        >
+          vendre des articles
+        </button>
       </div>
     </header>
   );
