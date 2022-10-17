@@ -39,9 +39,10 @@ const Login = ({ setUserToken }) => {
           placeholder="Adresse email"
           onChange={(event) => {
             setEmail(event.target.value);
+            setErrorMessage("");
           }}
           value={email}
-          className={errorMessage === "inexistant" ? "errorInput" : false}
+          className={errorMessage === "inexistant" ? "errorInput" : undefined}
         />
         <span className="errorMessage">
           {errorMessage === "inexistant" &&
@@ -52,9 +53,10 @@ const Login = ({ setUserToken }) => {
           placeholder="Mot de passe"
           onChange={(event) => {
             setPassword(event.target.value);
+            setErrorMessage("");
           }}
           value={password}
-          className={errorMessage === "password" ? "errorInput" : false}
+          className={errorMessage === "password" ? "errorInput" : undefined}
         />
         <span className="errorMessage">
           {errorMessage === "password" && "Mauvais mot de passe"}

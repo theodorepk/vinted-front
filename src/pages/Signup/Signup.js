@@ -17,24 +17,28 @@ const SignUp = ({ setUserToken }) => {
     const tab = { ...signupInfo };
     tab.email = event.target.value;
     setSignupInfo(tab);
+    setErrorMessage("");
   };
 
   const handleusername = (event) => {
     const tab = { ...signupInfo };
     tab.username = event.target.value;
     setSignupInfo(tab);
+    setErrorMessage("");
   };
 
   const handlePassword = (event) => {
     const tab = { ...signupInfo };
     tab.password = event.target.value;
     setSignupInfo(tab);
+    setErrorMessage("");
   };
 
   const handleNewsletter = () => {
     const tab = { ...signupInfo };
     tab.newsletter = !tab.newsletter;
     setSignupInfo(tab);
+    setErrorMessage("");
   };
 
   const navigate = useNavigate();
@@ -54,7 +58,6 @@ const SignUp = ({ setUserToken }) => {
       if (error.response.status === 409) {
         setErrorMessage("conflict");
       }
-      alert("Une erreur est survenue");
       console.log(error.response.data.message);
     }
   };
@@ -74,6 +77,7 @@ const SignUp = ({ setUserToken }) => {
           value={signupInfo.email}
           placeholder="mail@mail.com"
           onChange={handleEmail}
+          className={errorMessage === "conflict" ? "errorInput" : undefined}
         />
         <input
           type="password"
