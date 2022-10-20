@@ -10,6 +10,7 @@
     padding: 30px;
     .fileUpload {
       border: 1px solid #0dafba;
+      border-radius: 5px;
       width: 200px;
       height: 200px;
       align-self: center;
@@ -25,6 +26,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        border-radius: 4px;
       }
       .closeButton {
         color: red;

@@ -2,12 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./publish.scss";
-import { AiOutlineUpload, AiFillCloseCircle } from "react-icons/ai";
+import PhotoUploader from "../../components/PhotoUploader/PhotoUploader";
 
+// import { AiOutlineUpload, AiFillCloseCircle } from "react-icons/ai";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState(``);
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(undefined);
   const [condition, setCondition] = useState(``);
   const [city, setCity] = useState(``);
   const [brand, setBrand] = useState(``);
@@ -16,8 +17,7 @@ const Publish = ({ userToken }) => {
 
   const navigate = useNavigate();
 
-  const [preview, setPreview] = useState();
-  // create a preview as a side effect, whenever selected file is changed
+  // const [preview, setPreview] = useState("");
 
   return (
     <div className="publish container">
@@ -53,36 +53,39 @@ const Publish = ({ userToken }) => {
       >
         <h2>Vends ton article</h2>
         <div className="obligatoryFields">
-          <div className="fileUpload">
+          <PhotoUploader setFile={setFile} />
+          {/* <div className="fileUpload">
             {preview ? (
               <>
                 <AiFillCloseCircle
                   className="closeButton"
                   onClick={() => {
+                    console.log("remove image");
                     setPreview("");
+                    setFile({});
                   }}
                 />
                 <img src={preview} alt="produit à vendre" />
               </>
             ) : (
-              <label for="file-upload">
+              <label htmlFor="file-upload">
                 <p>
                   <AiOutlineUpload />
                   {" Photo"}
                 </p>
               </label>
             )}
-          </div>
-
-          <input
+          </div> */}
+          {/* <input
             id="file-upload"
             className="file"
             type="file"
             onChange={(event) => {
+              console.log(event.target.files);
               setFile(event.target.files[0]);
               setPreview(URL.createObjectURL(event.target.files[0]));
             }}
-          />
+          /> */}
           <div>
             <label htmlFor="title">Nom de l'article</label>
             <input
