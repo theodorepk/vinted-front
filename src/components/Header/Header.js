@@ -2,9 +2,6 @@ import logo from "../../assets/Vinted_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
-import Toggle from "react-toggle";
-import "react-toggle/style.css";
-import { BsSortNumericDown, BsSortNumericUpAlt } from "react-icons/bs";
 
 const Header = ({
   userToken,
@@ -51,14 +48,6 @@ const Header = ({
               <option value="desc">Décroissant</option>
             </select>
 
-            <input
-              type="checkbox"
-              name="priceSorting"
-              checked={sortPrice}
-              onChange={() => {
-                setSortPrice((prev) => !prev);
-              }}
-            />
             <label htmlFor="priceMin">Prix Mininum</label>
             <input
               type="text"

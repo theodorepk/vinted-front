@@ -1,0 +1,48 @@
+.publish {
+  .obligatoryFields,
+  .sellOtherData {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    border: 1px solid #0dafba;
+    border-radius: 3px;
+    margin-bottom: 30px;
+    padding: 30px;
+    .fileUpload {
+      border: 1px solid #0dafba;
+      width: 200px;
+      height: 200px;
+      align-self: center;
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .closeButton {
+        color: red;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 30px;
+        z-index: 1;
+      }
+    }
+    .file {
+      display: none;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  }
+}
