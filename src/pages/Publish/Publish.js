@@ -53,7 +53,7 @@ const Publish = ({ userToken }) => {
       >
         <h2>Vends ton article</h2>
         <div className="obligatoryFields">
-          <PhotoUploader setFile={setFile} />
+          <PhotoUploader setFile={setFile} file={file} />
           {/* <div className="fileUpload">
             {preview ? (
               <>
