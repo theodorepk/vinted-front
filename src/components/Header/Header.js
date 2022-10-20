@@ -2,6 +2,9 @@ import logo from "../../assets/Vinted_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
+import Toggle from "react-toggle";
+import "react-toggle/style.css";
+import { BsSortNumericDown, BsSortNumericUpAlt } from "react-icons/bs";
 
 const Header = ({
   userToken,
@@ -18,6 +21,13 @@ const Header = ({
   const location = useLocation();
   const navigate = useNavigate();
 
+  const handleSortPrice = (event) => {
+    if (event.target.value === "asc") {
+      setSortPrice(true);
+    } else {
+      setSortPrice(false);
+    }
+  };
   return (
     <header className="container">
       <Link to={"/"}>
@@ -35,7 +45,12 @@ const Header = ({
 
         {location.pathname === "/" && (
           <div className="sorting">
-            <label htmlFor="priceSorting">Prix Croissant / décroissant</label>
+            <label htmlFor="priceSorting">Trier par prix:</label>
+            <select onChange={handleSortPrice}>
+              <option value="asc">Croissant</option>
+              <option value="desc">Décroissant</option>
+            </select>
+
             <input
               type="checkbox"
               name="priceSorting"
