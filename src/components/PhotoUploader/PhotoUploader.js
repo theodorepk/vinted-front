@@ -2,7 +2,7 @@ import "./photoUploader.scss";
 import { AiOutlineUpload, AiFillCloseCircle } from "react-icons/ai";
 import { useState } from "react";
 
-const PhotoUploader = ({ setFile, file }) => {
+const PhotoUploader = ({ setFile }) => {
   const [preview, setPreview] = useState("");
 
   return (
@@ -12,10 +12,9 @@ const PhotoUploader = ({ setFile, file }) => {
           <AiFillCloseCircle
             className="closeButton"
             onClick={() => {
-              console.log("remove image");
-              URL.revokeObjectURL(file);
+              URL.revokeObjectURL(preview);
               setPreview("");
-              //   URL.revokeObjectURL(preview)
+              setFile({});
             }}
           />
           <img src={preview} alt="produit à vendre" />
@@ -31,9 +30,12 @@ const PhotoUploader = ({ setFile, file }) => {
         className="file"
         type="file"
         onChange={(event) => {
-          console.log("new Image");
           setFile(event.target.files[0]);
           setPreview(URL.createObjectURL(event.target.files[0]));
+        }}
+        //useFull if the user delete and re-add the same picture
+        onClick={(event) => {
+          event.target.value = null;
         }}
       />
     </>
