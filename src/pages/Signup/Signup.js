@@ -3,6 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import "./signup.scss";
+import PhotoUploader from "../../components/PhotoUploader/PhotoUploader";
 
 const SignUp = ({ setUserToken }) => {
   const [signupInfo, setSignupInfo] = useState({
@@ -12,6 +13,7 @@ const SignUp = ({ setUserToken }) => {
     newsletter: true,
   });
   const [errorMessage, setErrorMessage] = useState("");
+  const [file, setFile] = useState({});
 
   const handleEmail = (event) => {
     const tab = { ...signupInfo };
@@ -45,10 +47,17 @@ const SignUp = ({ setUserToken }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("email", signupInfo.email);
+    formData.append("username", signupInfo.username);
+    formData.append("password", signupInfo.password);
+    formData.append("newsletter", signupInfo.newsletter);
+    formData.append("avatar", file);
+
     try {
       const response = await axios.post(
         "http://localhost:3000/users/signup",
-        signupInfo
+        formData
       );
       Cookies.set("token", response.data.token, { expires: 7 });
       setUserToken(response.data.token);
@@ -66,6 +75,7 @@ const SignUp = ({ setUserToken }) => {
     <div className="accountForm">
       <h2> S'inscrire </h2>
       <form action="" onSubmit={handleSubmit}>
+        <PhotoUploader setFile={setFile} />
         <input
           type="text"
           value={signupInfo.username}

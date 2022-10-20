@@ -1,10 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import "./publish.scss";
 import PhotoUploader from "../../components/PhotoUploader/PhotoUploader";
 
-// import { AiOutlineUpload, AiFillCloseCircle } from "react-icons/ai";
 const Publish = ({ userToken }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState(``);
@@ -16,8 +16,6 @@ const Publish = ({ userToken }) => {
   const [color, setColor] = useState(``);
 
   const navigate = useNavigate();
-
-  // const [preview, setPreview] = useState("");
 
   return (
     <div className="publish container">
@@ -51,41 +49,9 @@ const Publish = ({ userToken }) => {
           }
         }}
       >
-        <h2>Vends ton article</h2>
+        <h2>Mettre en vente un article</h2>
         <div className="obligatoryFields">
           <PhotoUploader setFile={setFile} file={file} />
-          {/* <div className="fileUpload">
-            {preview ? (
-              <>
-                <AiFillCloseCircle
-                  className="closeButton"
-                  onClick={() => {
-                    console.log("remove image");
-                    setPreview("");
-                    setFile({});
-                  }}
-                />
-                <img src={preview} alt="produit à vendre" />
-              </>
-            ) : (
-              <label htmlFor="file-upload">
-                <p>
-                  <AiOutlineUpload />
-                  {" Photo"}
-                </p>
-              </label>
-            )}
-          </div> */}
-          {/* <input
-            id="file-upload"
-            className="file"
-            type="file"
-            onChange={(event) => {
-              console.log(event.target.files);
-              setFile(event.target.files[0]);
-              setPreview(URL.createObjectURL(event.target.files[0]));
-            }}
-          /> */}
           <div>
             <label htmlFor="title">Nom de l'article</label>
             <input

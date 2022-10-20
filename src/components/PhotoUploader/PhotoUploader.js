@@ -17,11 +17,12 @@ const PhotoUploader = ({ setFile }) => {
               setFile({});
             }}
           />
-          <img src={preview} alt="produit à vendre" />
+          <img src={preview} alt="previsualisation de l'image à envoyer" />
         </div>
       ) : (
         <label htmlFor="file-upload" className="fileUpload">
-          <AiOutlineUpload /> Photo
+          <AiOutlineUpload />
+          <span>Photo</span>
         </label>
       )}
 
