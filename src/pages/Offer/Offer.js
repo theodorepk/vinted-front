@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import { fetchOffer } from "../../logic/fetchData";
 
@@ -7,6 +7,7 @@ import "./offer.scss";
 const Offer = () => {
   const { id } = useParams();
   const { isLoading, data } = useQuery(["offers", id], () => fetchOffer(id));
+  const navigate = useNavigate();
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -50,9 +51,20 @@ const Offer = () => {
               <span> {data.owner.account.username}</span>
             </div>
           </div>
-          <Link to={"/payment"}>
-            <button className="buyButton">Acheter</button>
-          </Link>
+
+          <button
+            className="buyButton"
+            onClick={() =>
+              navigate("/payment", {
+                state: {
+                  price: data.product_price,
+                  name: data.product_name,
+                },
+              })
+            }
+          >
+            Acheter
+          </button>
         </div>
       </div>
     </div>

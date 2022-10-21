@@ -1,0 +1,73 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  b {
+    font-weight: bold;
+  }
+
+  p {
+    font-size: smaller;
+    line-height: 20px;
+    text-align: justify;
+  }
+  & > div {
+    border: 1px solid #0dafba;
+    // margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: white;
+
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    &:last-child {
+      border-top: 0.5px solid #7ec3c8;
+      border-radius: 0 0 5px 5px;
+    }
+    &:nth-child(2) {
+      border-top: none;
+      border-bottom: none;
+    }
+    &:first-child {
+      margin-top: 20px;
+      border-bottom: 0.5px solid #7ec3c8;
+      border-radius: 5px 5px 0 0;
+    }
+    .cardElement {
+      width: 100%;
+      border: solid 1px lightgrey;
+      padding: 5px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+  }
+  .pricing {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+
+    span:nth-child(2) {
+      font-weight: bold;
+    }
+  }
+
+  button {
+    background-color: #0dafba;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+  }
+}
+
+.paymentBcg {
+  background-color: lightgray;
+  height: 100vh;
+}
