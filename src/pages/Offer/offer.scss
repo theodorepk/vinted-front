@@ -12,8 +12,8 @@
   }
 
   img {
-    // width: 600px;
-    object-fit: cover;
+    max-width: 800px;
+    object-fit: contain;
     margin-right: 200px;
   }
 

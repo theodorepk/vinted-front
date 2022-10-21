@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "react-query";
 
-import axios from "axios";
 import Cookies from "js-cookie";
 import Home from "./pages/Home/Home";
 import Header from "./components/Header/Header";
@@ -12,50 +11,19 @@ import SignUp from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Publish from "./pages/Publish/Publish";
 import Payment from "./pages/Payment/Payment";
-
-const fetchData = async () => {
-  try {
-    const response = await axios.get(`http://localhost:3000/offers`);
-    // setData(response.data);
-    // setIsLoading(false);
-    return response.data;
-  } catch (error) {
-    console.log(error.response);
-  }
-};
+import { fetchOffers } from "./logic/fetchData";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [data, setData] = useState(null);
   const [sortPrice, setSortPrice] = useState(true);
   const [priceMin, setPriceMin] = useState(``);
   const [priceMax, setPriceMax] = useState(``);
   const [title, setTitle] = useState(``);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:3000/offers?title=${title}&sort=${
-  //           sortPrice ? `price-asc` : `price-desc`
-  //         }&priceMin=${priceMin ? priceMin : ``}&priceMax=${
-  //           priceMax ? priceMax : ``
-  //         }`
-  //       );
-  //       setData(response.data);
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.log(error.response);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [sortPrice, priceMin, priceMax, title]);
-
-  const { isLoading, data } = useQuery(["offers"], fetchData);
-  console.log(isLoading);
-  console.log(data);
-  // const offers = data || [];
+  const { isLoading, data, refetch } = useQuery(
+    ["offers", title, sortPrice, priceMin, priceMax],
+    () => fetchOffers(title, sortPrice, priceMin, priceMax)
+  );
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -85,7 +53,10 @@ function App() {
             path="/login"
             element={<Login setUserToken={setUserToken} />}
           />
-          <Route path="/publish" element={<Publish userToken={userToken} />} />
+          <Route
+            path="/publish"
+            element={<Publish userToken={userToken} refetch={refetch} />}
+          />
           <Route path="/payment" element={<Payment userToken={userToken} />} />
         </Routes>
       </Router>

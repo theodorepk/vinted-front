@@ -5,7 +5,7 @@ import axios from "axios";
 import "./publish.scss";
 import PhotoUploader from "../../components/PhotoUploader/PhotoUploader";
 
-const Publish = ({ userToken, setIsLoading }) => {
+const Publish = ({ userToken, refetch }) => {
   const [file, setFile] = useState({});
   const [title, setTitle] = useState(``);
   const [price, setPrice] = useState(undefined);
@@ -43,7 +43,7 @@ const Publish = ({ userToken, setIsLoading }) => {
               }
             );
             console.log(response);
-
+            refetch();
             navigate(`/offer/${response.data._id}`);
           } catch (error) {
             console.log(error.response.data);
