@@ -66,6 +66,8 @@ const SignUp = ({ setUserToken }) => {
     } catch (error) {
       if (error.response.status === 409) {
         setErrorMessage("conflict");
+      } else if (error.response.status === 412) {
+        setErrorMessage("username");
       }
       console.log(error.response.data.message);
     }
@@ -81,7 +83,12 @@ const SignUp = ({ setUserToken }) => {
           value={signupInfo.username}
           placeholder="Nom d'utilisateur"
           onChange={handleusername}
+          className={errorMessage === "username" ? "errorInput" : undefined}
         />
+        <span className="errorMessage">
+          {errorMessage === "username" &&
+            "Vous devez saisir un nom d'utilisateur"}
+        </span>
         <input
           type="email"
           value={signupInfo.email}
@@ -89,15 +96,16 @@ const SignUp = ({ setUserToken }) => {
           onChange={handleEmail}
           className={errorMessage === "conflict" ? "errorInput" : undefined}
         />
+        <span className="errorMessage">
+          {errorMessage === "conflict" && "L'adresse mail est déjà utilisée"}
+        </span>
+
         <input
           type="password"
           value={signupInfo.password}
           placeholder="Mot de passe"
           onChange={handlePassword}
         />
-        <span className="errorMessage">
-          {errorMessage === "conflict" && "L'adresse mail est déjà utilisée"}
-        </span>
 
         <div className="newsLetter">
           <input

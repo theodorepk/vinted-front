@@ -22,7 +22,6 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // https://lereacteur-vinted-api.herokuapp.com
       try {
         const response = await axios.get(
           `http://localhost:3000/offers?title=${title}&sort=${
@@ -68,7 +67,12 @@ function App() {
             path="/login"
             element={<Login setUserToken={setUserToken} />}
           />
-          <Route path="/publish" element={<Publish userToken={userToken} />} />
+          <Route
+            path="/publish"
+            element={
+              <Publish userToken={userToken} setIsLoading={setIsLoading} />
+            }
+          />
           <Route path="/payment" element={<Payment userToken={userToken} />} />
         </Routes>
       </Router>

@@ -17,7 +17,7 @@ const PhotoUploader = ({ setFile }) => {
               setFile({});
             }}
           />
-          <img src={preview} alt="previsualisation de l'image à envoyer" />
+          <img src={preview} alt="prévisualisation" />
         </div>
       ) : (
         <label htmlFor="file-upload" className="fileUpload">
