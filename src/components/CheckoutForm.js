@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-const CheckoutForm = ({ amount, userToken, product }) => {
+const CheckoutForm = ({ amount, userToken, product, id }) => {
   const [completed, setCompleted] = useState(false);
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
@@ -16,6 +16,8 @@ const CheckoutForm = ({ amount, userToken, product }) => {
     event.preventDefault();
     setLoading(true);
 
+    console.log(id);
+
     try {
       // get Card infoS
       const cardElement = elements.getElement(CardElement);
@@ -26,8 +28,6 @@ const CheckoutForm = ({ amount, userToken, product }) => {
 
       //   token from stripe API
       const stripeToken = stripeResponse.token.id;
-
-      console.log(stripeToken);
 
       //request to flink Backend
       const response = await axios.post(
@@ -49,6 +49,19 @@ const CheckoutForm = ({ amount, userToken, product }) => {
       //   succeed if server response is favorable
       if (response.data.status === "succeeded") {
         setCompleted(true);
+
+        const response = await axios.delete(
+          "http://localhost:3000/offer/delete",
+          {
+            headers: {
+              authorization: `Bearer ${userToken}`,
+            },
+
+            data: { id },
+          }
+        );
+
+        console.log(`delete route`, response.data);
 
         alert(
           "Paiement effectué \n Vous allez être redirigés sur la page d'accueil"

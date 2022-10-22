@@ -59,6 +59,7 @@ const Offer = () => {
                 state: {
                   price: data.product_price,
                   name: data.product_name,
+                  id,
                 },
               })
             }

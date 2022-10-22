@@ -49,6 +49,7 @@ const Payment = ({ userToken }) => {
               userToken={userToken}
               amount={location.state.price + 1.2}
               product={location.state.name}
+              id={location.state.id}
             />
           </Elements>
         </div>
