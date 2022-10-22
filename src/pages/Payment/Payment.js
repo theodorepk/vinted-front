@@ -5,9 +5,11 @@ import CheckoutForm from "../../components/CheckoutForm";
 
 import "./payment.scss";
 
-const Payment = () => {
+const Payment = ({ userToken }) => {
   const location = useLocation();
-  const stripePromise = loadStripe("pk_test_votreCléPublique");
+  const stripePromise = loadStripe(
+    "pk_test_51LoBQ5AbgniLnpASg7Siavuk54m76aXxSLkT8MoTe8c1E4C5LCaJy20c5nETUf4R1qd07dBDNMoydN9oyPKINETP00J3CUzt6C"
+  );
 
   return (
     <div className="paymentBcg">
@@ -43,7 +45,11 @@ const Payment = () => {
         </div>
         <div>
           <Elements stripe={stripePromise}>
-            <CheckoutForm />
+            <CheckoutForm
+              userToken={userToken}
+              amount={location.state.price + 1.2}
+              product={location.state.name}
+            />
           </Elements>
         </div>
       </div>

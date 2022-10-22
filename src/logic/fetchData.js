@@ -20,8 +20,6 @@ export const fetchOffer = async (id) => {
   try {
     const response = await axios.get(`http://localhost:3000/offer/${id}`);
     return response.data;
-    // setOfferData(response.data);
-    // setIsLoading(false);
   } catch (error) {
     console.log(error.response);
   }
