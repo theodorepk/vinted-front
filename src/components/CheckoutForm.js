@@ -31,7 +31,7 @@ const CheckoutForm = ({ amount, userToken, product, id }) => {
 
       //request to flink Backend
       const response = await axios.post(
-        "http://localhost:3000/pay",
+        "https://tpk-vinted-back.herokuapp.com/pay",
         {
           stripeToken,
           userToken,
@@ -51,7 +51,7 @@ const CheckoutForm = ({ amount, userToken, product, id }) => {
         setCompleted(true);
 
         const response = await axios.delete(
-          "http://localhost:3000/offer/delete",
+          "https://tpk-vinted-back.herokuapp.com/offer/delete",
           {
             headers: {
               authorization: `Bearer ${userToken}`,

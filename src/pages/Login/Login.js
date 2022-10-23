@@ -12,10 +12,13 @@ const Login = ({ setUserToken }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/users/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://tpk-vinted-back.herokuapp.com/users/login",
+        {
+          email,
+          password,
+        }
+      );
       console.log(response.data);
       Cookies.set("token", response.data.token, { expires: 7 });
       setUserToken(response.data.token);

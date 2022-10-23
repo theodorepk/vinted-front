@@ -56,7 +56,7 @@ const SignUp = ({ setUserToken }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/users/signup",
+        "https://tpk-vinted-back.herokuapp.com/users/signup",
         formData
       );
       Cookies.set("token", response.data.token, { expires: 7 });
