@@ -8,7 +8,8 @@ const Home = ({ data }) => {
     <div>
       <div className="hero"></div>
       <div className="homeOffers container">
-        {data.map((product, index) => {
+        {console.log(data)}
+        {data.offers.map((product, index) => {
           return (
             <Link className="product" key={index} to={`/offer/${product._id}`}>
               <MiniProduct product={product} />

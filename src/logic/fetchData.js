@@ -9,7 +9,6 @@ export const fetchOffers = async (title, sortPrice, priceMin, priceMax) => {
         priceMax ? priceMax : ``
       }`
     );
-
     return response.data;
   } catch (error) {
     console.log(error.response);

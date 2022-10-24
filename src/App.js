@@ -41,6 +41,7 @@ function App() {
           sortPrice={sortPrice}
           setTitle={setTitle}
           title={title}
+          data={data}
         />
         <Routes>
           <Route path="/" element={<Home data={data} />} />

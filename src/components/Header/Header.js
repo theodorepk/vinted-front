@@ -2,18 +2,19 @@ import logo from "../../assets/Vinted_logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
+import Slider from "../Slider";
 
 const Header = ({
   userToken,
   setUserToken,
   setSortPrice,
-  sortPrice,
   priceMin,
   priceMax,
   setPriceMin,
   setPriceMax,
   title,
   setTitle,
+  data,
 }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ const Header = ({
       setSortPrice(false);
     }
   };
+
   return (
     <header className="container">
       <Link to={"/"}>
@@ -48,23 +50,12 @@ const Header = ({
               <option value="desc">Décroissant</option>
             </select>
 
-            <label htmlFor="priceMin">Prix Mininum</label>
-            <input
-              type="text"
-              name="princeMin"
-              value={priceMin}
-              onChange={(event) => {
-                setPriceMin(event.target.value);
-              }}
-            />
-            <label htmlFor="priceMax">Prix Maximum</label>
-            <input
-              type="text"
-              name="princeMax"
-              value={priceMax}
-              onChange={(event) => {
-                setPriceMax(event.target.value);
-              }}
+            <Slider
+              priceMax={priceMax}
+              priceMin={priceMin}
+              setPriceMin={setPriceMin}
+              setPriceMax={setPriceMax}
+              data={data}
             />
           </div>
         )}
