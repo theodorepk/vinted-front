@@ -2,4 +2,14 @@
 
 https://tpk-vinted.netlify.app/
 
-Full-stack project
+([Back-end repository](https://github.com/theodorepk/vinted-back))
+
+### Home page
+
+### Offer page
+
+### Login and Sign-up page
+
+### Publish page
+
+### Payment page
