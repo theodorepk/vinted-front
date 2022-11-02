@@ -27,6 +27,7 @@ const Slider = ({ priceMax, priceMin, setPriceMax, setPriceMin, data }) => {
       renderTrack={({ props, children }) => (
         // eslint-disable-next-line jsx-a11y/no-static-element-interactions
         <div
+          className="slider"
           onMouseDown={props.onMouseDown}
           onTouchStart={props.onTouchStart}
           style={{
@@ -73,12 +74,12 @@ const Slider = ({ priceMax, priceMin, setPriceMax, setPriceMin, data }) => {
           <div
             style={{
               position: "absolute",
-              top: "-28px",
+              top: "-22px",
               color: "#fff",
               fontWeight: "bold",
               fontSize: "14px",
               fontFamily: "Arial,Helvetica Neue,Helvetica,sans-serif",
-              padding: "4px",
+              padding: "2px",
               borderRadius: "4px",
               backgroundColor: "#0dafba",
             }}
