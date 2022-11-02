@@ -45,11 +45,10 @@ const Header = ({
         {location.pathname === "/" && (
           <div className="sorting">
             <label htmlFor="priceSorting">Trier par prix:</label>
-            <select onChange={handleSortPrice}>
+            <select onChange={handleSortPrice} className="price-sorting">
               <option value="asc">Croissant</option>
               <option value="desc">Décroissant</option>
             </select>
-
             <Slider
               priceMax={priceMax}
               priceMin={priceMin}
