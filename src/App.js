@@ -12,18 +12,28 @@ import Login from "./pages/Login/Login";
 import Publish from "./pages/Publish/Publish";
 import Payment from "./pages/Payment/Payment";
 import { fetchOffers } from "./logic/fetchData";
+import { useVintedStore } from "./logic/store";
 
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
   const [sortPrice, setSortPrice] = useState(true);
-  const [priceMin, setPriceMin] = useState(``);
-  const [priceMax, setPriceMax] = useState(``);
   const [title, setTitle] = useState(``);
+
+  const priceMin = useVintedStore((state) => state.priceMin);
+  const priceMax = useVintedStore((state) => state.priceMax);
 
   const { isLoading, data, refetch } = useQuery(
     ["offers", title, sortPrice, priceMin, priceMax],
     () => fetchOffers(title, sortPrice, priceMin, priceMax)
   );
+
+  const setMin = useVintedStore((state) => state.setMin);
+  const setMax = useVintedStore((state) => state.setMax);
+
+  if (data) {
+    setMin(data.min);
+    setMax(data.max);
+  }
 
   return isLoading ? (
     <span>En cours de chargement</span>
@@ -34,14 +44,9 @@ function App() {
           userToken={userToken}
           setUserToken={setUserToken}
           setSortPrice={setSortPrice}
-          setPriceMax={setPriceMax}
-          setPriceMin={setPriceMin}
-          priceMax={priceMax}
-          priceMin={priceMin}
           sortPrice={sortPrice}
           setTitle={setTitle}
-          title={title}
-          data={data}
+          // title={title}
         />
         <Routes>
           <Route path="/" element={<Home data={data} />} />

@@ -1,14 +1,10 @@
 import Slider from "./Slider";
 import { useLocation } from "react-router-dom";
+import SearchBar from "./SearchBar";
 
 const SearchFrom = ({
-  priceMax,
-  priceMin,
-  setPriceMax,
-  setPriceMin,
-  data,
   setSortPrice,
-  title,
+  // title,
   setTitle,
 }) => {
   const location = useLocation();
@@ -23,15 +19,7 @@ const SearchFrom = ({
 
   return (
     <div className="searchZone">
-      <input
-        key="searchBar"
-        className="searchBar"
-        placeholder="🔍 rechercher des articles"
-        value={title}
-        onChange={(event) => {
-          setTitle(event.target.value);
-        }}
-      />
+      <SearchBar setTitle={setTitle} />
 
       {location.pathname === "/" && (
         <div className="sorting">
@@ -40,13 +28,7 @@ const SearchFrom = ({
             <option value="asc">Croissant</option>
             <option value="desc">Décroissant</option>
           </select>
-          <Slider
-            priceMax={priceMax}
-            priceMin={priceMin}
-            setPriceMin={setPriceMin}
-            setPriceMax={setPriceMax}
-            data={data}
-          />
+          <Slider />
         </div>
       )}
     </div>

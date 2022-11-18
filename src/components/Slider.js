@@ -1,10 +1,21 @@
 import { Range, getTrackBackground } from "react-range";
 import { useState } from "react";
+import { useVintedStore } from "../logic/store";
 
-const Slider = ({ priceMax, priceMin, setPriceMax, setPriceMin, data }) => {
+const Slider = () => {
+  const min = useVintedStore((state) => state.min);
+  const max = useVintedStore((state) => state.max);
+  const setPriceMin = useVintedStore((state) => state.setPriceMin);
+  const setPriceMax = useVintedStore((state) => state.setPriceMax);
+  const priceMin = useVintedStore((state) => state.priceMin);
+  const priceMax = useVintedStore((state) => state.priceMax);
+
   const STEP = 1;
-  const MIN = data.min;
-  const MAX = data.max;
+  const MIN = min;
+  const MAX = max;
+
+  console.log("MAX", MAX);
+  console.log("MIN", MIN);
 
   const [values, setValues] = useState([priceMin || MIN, priceMax || MAX]);
 
@@ -17,8 +28,6 @@ const Slider = ({ priceMax, priceMin, setPriceMax, setPriceMin, data }) => {
       onChange={(values) => {
         console.log(values);
         setValues(values);
-        // setPriceMin(values[0]);
-        // setPriceMax(values[1]);
       }}
       onFinalChange={(values) => {
         setPriceMin(values[0]);

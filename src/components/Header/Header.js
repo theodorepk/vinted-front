@@ -9,13 +9,8 @@ const Header = ({
   userToken,
   setUserToken,
   setSortPrice,
-  priceMin,
-  priceMax,
-  setPriceMin,
-  setPriceMax,
-  title,
+  // title,
   setTitle,
-  data,
 }) => {
   const navigate = useNavigate();
 
@@ -24,16 +19,7 @@ const Header = ({
       <Link to={"/"}>
         <img src={logo} alt="logo Vinted" className="logo" />
       </Link>
-      <SearchFrom
-        priceMax={priceMax}
-        priceMin={priceMin}
-        setPriceMin={setPriceMin}
-        setPriceMax={setPriceMax}
-        data={data}
-        setSortPrice={setSortPrice}
-        title={title}
-        setTitle={setTitle}
-      />
+      <SearchFrom setSortPrice={setSortPrice} setTitle={setTitle} />
       <div className="buttons">
         <div className="profileButton">
           {!userToken && (

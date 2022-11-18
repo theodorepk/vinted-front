@@ -8,7 +8,6 @@ const Home = ({ data }) => {
     <div>
       <div className="hero"></div>
       <div className="homeOffers container">
-        {console.log(data)}
         {data.offers.map((product, index) => {
           return (
             <Link className="product" key={index} to={`/offer/${product._id}`}>
