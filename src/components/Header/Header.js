@@ -1,8 +1,9 @@
 import logo from "../../assets/Vinted_logo.png";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "./header.scss";
-import Slider from "../Slider";
+// import Slider from "../Slider";
+import SearchFrom from "../SearchFrom";
 
 const Header = ({
   userToken,
@@ -16,23 +17,15 @@ const Header = ({
   setTitle,
   data,
 }) => {
-  const location = useLocation();
+  // const location = useLocation();
   const navigate = useNavigate();
-
-  const handleSortPrice = (event) => {
-    if (event.target.value === "asc") {
-      setSortPrice(true);
-    } else {
-      setSortPrice(false);
-    }
-  };
 
   return (
     <header className="container">
       <Link to={"/"}>
         <img src={logo} alt="logo Vinted" className="logo" />
       </Link>
-      <div className="searchZone">
+      {/* <div className="searchZone">
         <input
           className="searchBar"
           placeholder="🔍 rechercher des articles"
@@ -58,8 +51,17 @@ const Header = ({
             />
           </div>
         )}
-      </div>
-
+      </div> */}
+      <SearchFrom
+        priceMax={priceMax}
+        priceMin={priceMin}
+        setPriceMin={setPriceMin}
+        setPriceMax={setPriceMax}
+        data={data}
+        setSortPrice={setSortPrice}
+        title={title}
+        setTitle={setTitle}
+      />
       <div className="buttons">
         <div className="profileButton">
           {!userToken && (
