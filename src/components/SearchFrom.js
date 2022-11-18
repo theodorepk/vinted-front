@@ -12,7 +12,6 @@ const SearchFrom = ({
   setTitle,
 }) => {
   const location = useLocation();
-  //   const navigate = useNavigate();
 
   const handleSortPrice = (event) => {
     if (event.target.value === "asc") {
@@ -25,6 +24,7 @@ const SearchFrom = ({
   return (
     <div className="searchZone">
       <input
+        key="searchBar"
         className="searchBar"
         placeholder="🔍 rechercher des articles"
         value={title}
