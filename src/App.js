@@ -18,7 +18,6 @@ function App() {
   const [userToken, setUserToken] = useState(Cookies.get(`token`) || ``);
   const [sortPrice, setSortPrice] = useState(true);
   const [title, setTitle] = useState(``);
-
   const priceMin = useVintedStore((state) => state.priceMin);
   const priceMax = useVintedStore((state) => state.priceMax);
 
@@ -35,9 +34,7 @@ function App() {
     setMax(data.max);
   }
 
-  return isLoading ? (
-    <span>En cours de chargement</span>
-  ) : (
+  return (
     <div className="App">
       <Router>
         <Header
@@ -46,25 +43,33 @@ function App() {
           setSortPrice={setSortPrice}
           sortPrice={sortPrice}
           setTitle={setTitle}
-          // title={title}
+          title={title}
+          isLoading={isLoading}
         />
-        <Routes>
-          <Route path="/" element={<Home data={data} />} />
-          <Route path="/offer/:id" element={<Offer />} />
-          <Route
-            path="/signup"
-            element={<SignUp setUserToken={setUserToken} />}
-          />
-          <Route
-            path="/login"
-            element={<Login setUserToken={setUserToken} />}
-          />
-          <Route
-            path="/publish"
-            element={<Publish userToken={userToken} refetch={refetch} />}
-          />
-          <Route path="/payment" element={<Payment userToken={userToken} />} />
-        </Routes>
+        {isLoading ? (
+          <span>En cours de chargement</span>
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home data={data} />} />
+            <Route path="/offer/:id" element={<Offer />} />
+            <Route
+              path="/signup"
+              element={<SignUp setUserToken={setUserToken} />}
+            />
+            <Route
+              path="/login"
+              element={<Login setUserToken={setUserToken} />}
+            />
+            <Route
+              path="/publish"
+              element={<Publish userToken={userToken} refetch={refetch} />}
+            />
+            <Route
+              path="/payment"
+              element={<Payment userToken={userToken} />}
+            />
+          </Routes>
+        )}
       </Router>
     </div>
   );

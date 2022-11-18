@@ -9,8 +9,9 @@ const Header = ({
   userToken,
   setUserToken,
   setSortPrice,
-  // title,
+  title,
   setTitle,
+  isLoading,
 }) => {
   const navigate = useNavigate();
 
@@ -19,7 +20,12 @@ const Header = ({
       <Link to={"/"}>
         <img src={logo} alt="logo Vinted" className="logo" />
       </Link>
-      <SearchFrom setSortPrice={setSortPrice} setTitle={setTitle} />
+      <SearchFrom
+        setSortPrice={setSortPrice}
+        setTitle={setTitle}
+        title={title}
+        isLoading={isLoading}
+      />
       <div className="buttons">
         <div className="profileButton">
           {!userToken && (

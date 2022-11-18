@@ -1,10 +1,10 @@
-const SearchBar = ({ setTitle }) => {
+const SearchBar = ({ setTitle, title }) => {
   return (
     <input
       key="searchBar"
       className="searchBar"
       placeholder="🔍 rechercher des articles"
-      //   value={title}
+      value={title}
       onChange={(event) => {
         setTitle(event.target.value);
       }}
