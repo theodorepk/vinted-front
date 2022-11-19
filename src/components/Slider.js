@@ -93,7 +93,7 @@ const Slider = () => {
               backgroundColor: "#0dafba",
             }}
           >
-            {values[index].toFixed(1)}
+            {values[index].toFixed(0)}
           </div>
         </div>
       )}
