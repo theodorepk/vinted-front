@@ -31,7 +31,11 @@ const Header = ({
           />
         </div>
         {burgerIsActive && (
-          <Buttons userToken={userToken} setUserToken={setUserToken} />
+          <Buttons
+            userToken={userToken}
+            setUserToken={setUserToken}
+            setBurgerIsActive={setBurgerIsActive}
+          />
         )}
       </div>
 
@@ -41,7 +45,11 @@ const Header = ({
         title={title}
         isLoading={isLoading}
       />
-      <Buttons userToken={userToken} setUserToken={setUserToken} />
+      <Buttons
+        userToken={userToken}
+        setUserToken={setUserToken}
+        setBurgerIsActive={setBurgerIsActive}
+      />
     </header>
   );
 };

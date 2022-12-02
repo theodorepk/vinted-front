@@ -1,19 +1,31 @@
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 
-const Buttons = ({ userToken, setUserToken }) => {
+const Buttons = ({ userToken, setUserToken, setBurgerIsActive }) => {
   const navigate = useNavigate();
   return (
     <div className="buttons">
       <div className="profileButton">
         {!userToken && (
           <Link to={"/signup"}>
-            <button> s'inscrire</button>
+            <button
+              onClick={() => {
+                setBurgerIsActive((prevState) => !prevState);
+              }}
+            >
+              S'inscrire
+            </button>
           </Link>
         )}
         {!userToken && (
           <Link to={"/login"}>
-            <button> se connecter</button>
+            <button
+              onClick={() => {
+                setBurgerIsActive((prevState) => !prevState);
+              }}
+            >
+              Se connecter
+            </button>
           </Link>
         )}
         {userToken && (
@@ -21,6 +33,7 @@ const Buttons = ({ userToken, setUserToken }) => {
             onClick={() => {
               Cookies.remove("token");
               setUserToken(``);
+              setBurgerIsActive((prevState) => !prevState);
             }}
           >
             Se déconnecter
@@ -32,9 +45,10 @@ const Buttons = ({ userToken, setUserToken }) => {
         className="sellButton"
         onClick={() => {
           userToken ? navigate("/publish") : navigate("/login");
+          setBurgerIsActive((prevState) => !prevState);
         }}
       >
-        vendre des articles
+        Vendre des articles
       </button>
     </div>
   );
