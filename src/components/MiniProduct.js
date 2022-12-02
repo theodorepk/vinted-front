@@ -13,7 +13,11 @@ const MiniProduct = ({ product }) => {
       </div>
 
       {product.product_image.secure_url && (
-        <img src={product.product_image.secure_url} alt="produit vendu" />
+        <img
+          src={product.product_image.secure_url}
+          alt="produit vendu"
+          className="product-image"
+        />
       )}
       <div className="infoProduct">
         <div>
