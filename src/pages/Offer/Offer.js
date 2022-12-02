@@ -13,8 +13,11 @@ const Offer = () => {
     <span>En cours de chargement</span>
   ) : (
     <div className="offer">
-      <div className="offerProduct">
-        <img src={data.product_image.secure_url} alt="produit vendu" />
+      <div className="offerProduct container">
+        <div className="image-div">
+          <img src={data.product_image.secure_url} alt="produit vendu" />
+        </div>
+
         <div className="offerInfo">
           <div className="technicalInfoProduct">
             <span className="productPrice">{data.product_price} €</span>
