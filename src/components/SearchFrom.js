@@ -23,7 +23,7 @@ const SearchFrom = ({ setSortPrice, title, setTitle, isLoading }) => {
             <option value="asc">Croissant</option>
             <option value="desc">Décroissant</option>
           </select>
-          {/* {!isLoading && <Slider />} */}
+          {!isLoading && <Slider />}
         </div>
       )}
     </div>

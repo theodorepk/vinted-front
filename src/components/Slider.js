@@ -41,9 +41,9 @@ const Slider = () => {
           onTouchStart={props.onTouchStart}
           style={{
             ...props.style,
-            height: "36px",
-            display: "flex",
-            width: "100%",
+            // height: "36px",
+            // display: "flex",
+            // width: "100%",
           }}
         >
           <div
