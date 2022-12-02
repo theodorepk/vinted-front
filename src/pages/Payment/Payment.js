@@ -39,7 +39,7 @@ const Payment = ({ userToken }) => {
           <p>
             Il ne vous reste plus qu'une étape pour vous offrir
             <b> {location.state.name}</b>. Vous allez payer
-            <b> {location.state.price + 1.2} € </b>
+            <b> {location.state.price + 1.2}&nbsp;€ </b>
             (frais de protection et frais de port inclus).
           </p>
         </div>
