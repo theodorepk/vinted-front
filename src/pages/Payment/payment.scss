@@ -75,3 +75,22 @@
   background-color: lightgray;
   height: 100vh;
 }
+
+@media (max-width: 750px) {
+  .paymentBcg {
+    width: 100vw;
+
+    .payment {
+      padding: 10px;
+
+      div {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .summary {
+        margin: 0;
+      }
+    }
+  }
+}
