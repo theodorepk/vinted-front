@@ -50,7 +50,7 @@ const Slider = () => {
             ref={props.ref}
             style={{
               height: "5px",
-              width: "300px",
+              // width: "300px",
               borderRadius: "4px",
               background: getTrackBackground({
                 values,

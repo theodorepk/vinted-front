@@ -74,6 +74,10 @@ header {
 
     .slider {
       margin-left: 20px;
+
+      > div {
+        width: 300px;
+      }
     }
   }
 }
@@ -203,10 +207,14 @@ header {
         height: 45px;
         align-items: flex-end;
         margin: 2px 5px;
-      }
 
-      .slider {
-        height: 15px;
+        .slider {
+          height: 15px;
+
+          > div {
+            width: 250px;
+          }
+        }
       }
     }
 
