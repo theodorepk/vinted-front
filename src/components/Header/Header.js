@@ -1,9 +1,12 @@
 import logo from "../../assets/Vinted_logo.png";
-import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
+
 import "./header.scss";
 
 import SearchFrom from "../SearchFrom";
+import Buttons from "../Buttons";
+import BurgerMenu from "../BurgerMenu";
+import { useState } from "react";
 
 const Header = ({
   userToken,
@@ -13,52 +16,32 @@ const Header = ({
   setTitle,
   isLoading,
 }) => {
-  const navigate = useNavigate();
+  const [burgerIsActive, setBurgerIsActive] = useState(false);
 
   return (
     <header className="container">
-      <Link to={"/"}>
-        <img src={logo} alt="logo Vinted" className="logo" />
-      </Link>
+      <div className="first-line">
+        <div>
+          <Link to={"/"}>
+            <img src={logo} alt="logo Vinted" className="logo" />
+          </Link>
+          <BurgerMenu
+            setBurgerIsActive={setBurgerIsActive}
+            burgerIsActive={burgerIsActive}
+          />
+        </div>
+        {burgerIsActive && (
+          <Buttons userToken={userToken} setUserToken={setUserToken} />
+        )}
+      </div>
+
       <SearchFrom
         setSortPrice={setSortPrice}
         setTitle={setTitle}
         title={title}
         isLoading={isLoading}
       />
-      <div className="buttons">
-        <div className="profileButton">
-          {!userToken && (
-            <Link to={"/signup"}>
-              <button> s'inscrire</button>
-            </Link>
-          )}
-          {!userToken && (
-            <Link to={"/login"}>
-              <button> se connecter</button>
-            </Link>
-          )}
-          {userToken && (
-            <button
-              onClick={() => {
-                Cookies.remove("token");
-                setUserToken(``);
-              }}
-            >
-              Se déconnecter
-            </button>
-          )}
-        </div>
-
-        <button
-          className="sellButton"
-          onClick={() => {
-            userToken ? navigate("/publish") : navigate("/login");
-          }}
-        >
-          vendre des articles
-        </button>
-      </div>
+      <Buttons userToken={userToken} setUserToken={setUserToken} />
     </header>
   );
 };
