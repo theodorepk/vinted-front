@@ -13,3 +13,5 @@ Cards ID (test mode):
 
 ### Home page 
 
+<img width="1216" alt="Home Page" src="https://user-images.githubusercontent.com/52459719/206433495-0783cf25-379f-4da6-9411-439be191c206.png">
+![Capture d’écran 2022-12-08 à 12 18 26](https://user-images.githubusercontent.com/52459719/206433769-d045cd82-ad8a-47c9-8150-72528a9769ab.png)
