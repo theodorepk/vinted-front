@@ -10,16 +10,16 @@ https://tpk-vinted.netlify.app/
 
 Items can be filter by price and key-words :
 <div>
-!<img height="450" alt="Home Page" src="https://user-images.githubusercontent.com/52459719/206433495-0783cf25-379f-4da6-9411-439be191c206.png">
-!<img  height="450" alt="image" src="https://user-images.githubusercontent.com/52459719/206507634-506540df-2ba4-4518-9743-a2d4381c3804.png">
+<img height="400" alt="Home Page" src="https://user-images.githubusercontent.com/52459719/206433495-0783cf25-379f-4da6-9411-439be191c206.png">
+<img  height="400" alt="image" src="https://user-images.githubusercontent.com/52459719/206507634-506540df-2ba4-4518-9743-a2d4381c3804.png">
 
 </div>
 
 ### Create an account
-<img height="450" alt="Capture d’écran 2022-12-08 à 17 07 32" src="https://user-images.githubusercontent.com/52459719/206498780-ef4e5ad2-7bd0-4e25-a4a7-be94c282e748.png">
+<img height="400" alt="Capture d’écran 2022-12-08 à 17 07 32" src="https://user-images.githubusercontent.com/52459719/206498780-ef4e5ad2-7bd0-4e25-a4a7-be94c282e748.png">
 
 ### Sell an item
-<img height="450" alt="Capture d’écran 2022-12-08 à 12 25 11" src="https://user-images.githubusercontent.com/52459719/206499086-939f3f62-d014-475b-abad-eedc0600c9b7.png">
+<img height="400" alt="Capture d’écran 2022-12-08 à 12 25 11" src="https://user-images.githubusercontent.com/52459719/206499086-939f3f62-d014-475b-abad-eedc0600c9b7.png">
 
 ### Payment page
 
