@@ -26,7 +26,6 @@ const Slider = () => {
       min={MIN}
       max={MAX}
       onChange={(values) => {
-        console.log(values);
         setValues(values);
       }}
       onFinalChange={(values) => {
